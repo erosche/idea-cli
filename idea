@@ -14,9 +14,9 @@ if [ "$1" = "init" ]; then
     echo "Created IDEA.md"
   fi
 
-  if [ ! -f "~/.ideas.log" ]; then
+  if [ ! -f "$HOME/.ideas.log" ]; then
     cd "$HOME" && echo "# ideas log file" > .ideas.log
-    echo "~/.ideas.log file created"
+    echo "$HOME/.ideas.log file created"
   fi
 
   exit 0
@@ -53,3 +53,6 @@ if [ ! -f "$IDEAS_FILE" ]; then
     touch "$IDEAS_FILE"
   fi
 fi
+
+echo "- $(date '+%Y-%m-%d %H:%M') - $*" >> "$IDEAS_FILE"
+echo "Saved idea to $IDEAS_FILE"
