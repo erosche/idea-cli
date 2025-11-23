@@ -41,8 +41,15 @@ GLOBAL_IDEAS_FILE="$HOME/.ideas.log"
 if PROJECT_ROOT="$(find_project_root)"; then
   IDEAS_FILE="$PROJECT_ROOT/IDEA.md"
 
-else IDEAS_FILE="$GLOBAL_IDEAS_FILE"
+else 
   IDEAS_FILE="$GLOBAL_IDEAS_FILE"
   echo "No .idea project found. Logging idea to $IDEAS_FILE"
 fi
 
+if [ ! -f "$IDEAS_FILE" ]; then
+  if [ "$IDEAS_FILE" != "$GLOBAL_IDEAS_FILE" ]; then
+    echo "# Ideas for $(basename "$PROJECT_ROOT")"> "$IDEAS_FILE"
+  else
+    touch "$IDEAS_FILE"
+  fi
+fi
