@@ -17,3 +17,16 @@ if [ "$1" = "init" ]; then
   exit 0
 fi
 
+find_project_root() {
+  local dir="$PWD"
+  while [ "$dir" != "/" ]; do
+
+    if [ -e "$dir/.idea" ]; then
+      echo "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+
+  done
+  return 1 # no .idea found
+}
