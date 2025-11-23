@@ -3,8 +3,8 @@ A lightweight command-line tool for capturing notes without breaking flow in Lin
 
 ## Global installation with curl
 ```bash
-curl -fsSL https://raw.githubusercontent.com/erosche/idea-cli/main/idea \
+sudo curl -fsSL https://raw.githubusercontent.com/erosche/idea-cli/main/idea \
   -o /usr/local/bin/idea
 
-chmod +x /usr/local/bin/idea
+sudo chmod +x /usr/local/bin/idea
 
