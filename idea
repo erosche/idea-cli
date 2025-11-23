@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
 if [ "$1" = "init" ]; then
+
   if [ -e ".idea" ]; then
     echo ".idea already exists here. Nothing to do."
   else
     touch .idea
     echo "Created .idea in $(pwd)"
   fi
+
+  if [ ! -f "IDEA.md" ]; then
+    echo "# Ideas for $(basename "$(pwd)")" > IDEA.md
+    echo "Created IDEA.md"
+  fi
+
+  exit 0
 fi
+
